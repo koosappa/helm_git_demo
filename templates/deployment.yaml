@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: my-helm
+  name: my-helm
+  namespace: dev
+spec:
+  replicas: {{ .Values.replicaCount }}
+  #replicas: 1
+  selector:
+    matchLabels:
+      app: my-helm
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: my-helm
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        resources: {}
+status: {}
